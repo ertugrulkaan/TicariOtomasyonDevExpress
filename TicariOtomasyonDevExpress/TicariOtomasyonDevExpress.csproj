@@ -73,12 +73,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCompanies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompanies.Designer.cs">
+      <DependentUpon>frmCompanies.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBCon.cs" />
+    <Compile Include="frmContacts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmContacts.Designer.cs">
+      <DependentUpon>frmContacts.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCustomers.Designer.cs">
       <DependentUpon>frmCustomers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployees.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployees.Designer.cs">
+      <DependentUpon>frmEmployees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMail.Designer.cs">
+      <DependentUpon>frmMail.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -94,8 +118,20 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCompanies.resx">
+      <DependentUpon>frmCompanies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmContacts.resx">
+      <DependentUpon>frmContacts.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployees.resx">
+      <DependentUpon>frmEmployees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMail.resx">
+      <DependentUpon>frmMail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

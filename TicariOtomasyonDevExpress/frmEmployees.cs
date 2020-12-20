@@ -12,20 +12,24 @@ using System.Windows.Forms;
 
 namespace TicariOtomasyonDevExpress
 {
-    public partial class frmCustomers : Form
+    public partial class frmEmployees : Form
     {
-        //string type = "CUS";
         DBCon localdb = new DBCon();
-        public frmCustomers()
+        public frmEmployees()
         {
             InitializeComponent();
         }
-        void GetCustomers()
+        private void frmEmployees_Load(object sender, EventArgs e)
+        {
+            GetCityList();
+            GetEmployees();
+        }
+        void GetEmployees()
         {
             try
             {
                 DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter("Select * from Customers", localdb.DB());
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Employees", localdb.DB());
                 da.Fill(dt);
                 gridControl1.DataSource = dt;
             }
@@ -51,6 +55,73 @@ namespace TicariOtomasyonDevExpress
                 XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        void InsertEmployees()
+        {
+            try
+            {
+                SqlCommand sql = new SqlCommand("Insert into Employees (FirstName,LastName,IdentityNumber,PhoneNumber1,PhoneNumber2,EmailAddress,AddressCity,AddressTown,AddressDetail,JobDescription) values (@FirstName,@LastName,@IdentityNumber,@PhoneNumber1,@PhoneNumber2,@EmailAddress,@AddressCity,@AddressTown,@AddressDetail,@JobDescription)", localdb.DB());
+                sql.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
+                sql.Parameters.AddWithValue("@LastName", txtLastName.Text);
+                sql.Parameters.AddWithValue("@IdentityNumber", txtTC.Text);
+                sql.Parameters.AddWithValue("@PhoneNumber1", mtxtPhone1.Text);
+                sql.Parameters.AddWithValue("@PhoneNumber2", mtxtPhone2.Text);
+                sql.Parameters.AddWithValue("@EmailAddress", txtEmail.Text);
+                sql.Parameters.AddWithValue("@AddressCity", cmbCities.SelectedText);
+                sql.Parameters.AddWithValue("@AddressTown", cmbTowns.SelectedText);
+                sql.Parameters.AddWithValue("@AddressDetail", txtAddressDetail.Text);
+                sql.Parameters.AddWithValue("@JobDescription", txtJobDesc.Text);
+                sql.ExecuteNonQuery();
+                localdb.DB().Close();
+                XtraMessageBox.Show("Personel Sisteme Eklendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+        void DeleteEmployees()
+        {
+            try
+            {
+                SqlCommand sql = new SqlCommand("Delete from Employees where ID=@ID", localdb.DB());
+                sql.Parameters.AddWithValue("@ID", txtID.Text);
+                sql.ExecuteNonQuery();
+                localdb.DB().Close();
+                XtraMessageBox.Show("Personel Sistemden Silindi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+        void UpdateEmployees()
+        {
+            try
+            {
+                SqlCommand sql = new SqlCommand("update Employees set FirstName=@FirstName,LastName=@LastName,IdentityNumber=@IdentityNumber,PhoneNumber1=@PhoneNumber1,PhoneNumber2=@PhoneNumber2,EmailAddress=@EmailAddress,AddressCity=@AddressCity,AddressTown=@AddressTown,AddressDetail=@AddressDetail,JobDescription=@JobDescription where ID=@ID ", localdb.DB());
+                sql.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
+                sql.Parameters.AddWithValue("@LastName", txtLastName.Text);
+                sql.Parameters.AddWithValue("@IdentityNumber", txtTC.Text);
+                sql.Parameters.AddWithValue("@PhoneNumber1", mtxtPhone1.Text);
+                sql.Parameters.AddWithValue("@PhoneNumber2", mtxtPhone2.Text);
+                sql.Parameters.AddWithValue("@EmailAddress", txtEmail.Text);
+                sql.Parameters.AddWithValue("@AddressCity", cmbCities.SelectedText);
+                sql.Parameters.AddWithValue("@AddressTown", cmbTowns.SelectedText);
+                sql.Parameters.AddWithValue("@AddressDetail", txtAddressDetail.Text);
+                sql.Parameters.AddWithValue("@JobDescription", txtJobDesc.Text);
+                sql.Parameters.AddWithValue("@ID", txtID.Text);
+                sql.ExecuteNonQuery();
+                localdb.DB().Close();
+                XtraMessageBox.Show("Müşteri Sistemde Güncellendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
         private void cmbCities_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -69,78 +140,6 @@ namespace TicariOtomasyonDevExpress
             {
                 XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-        }
-        private void frmCustomers_Load(object sender, EventArgs e)
-        {
-            GetCustomers();
-            GetCityList();
-        }
-        void InsertCustomers()
-        {
-            try
-            {
-                SqlCommand sql = new SqlCommand("Insert into Customers (FirstName,LastName,IdentityNumber,PhoneNumber1,PhoneNumber2,EmailAddress,AddressCity,AddressTown,AddressDetail,TaxAddress) values (@FirstName,@LastName,@IdentityNumber,@PhoneNumber1,@PhoneNumber2,@EmailAddress,@AddressCity,@AddressTown,@AddressDetail,@TaxAddress)", localdb.DB());
-                sql.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-                sql.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                sql.Parameters.AddWithValue("@IdentityNumber", txtTC.Text);
-                sql.Parameters.AddWithValue("@PhoneNumber1", mtxtPhone1.Text);
-                sql.Parameters.AddWithValue("@PhoneNumber2", mtxtPhone2.Text);
-                sql.Parameters.AddWithValue("@EmailAddress", txtEmail.Text);
-                sql.Parameters.AddWithValue("@AddressCity", cmbCities.SelectedText);
-                sql.Parameters.AddWithValue("@AddressTown", cmbTowns.SelectedText);
-                sql.Parameters.AddWithValue("@AddressDetail", txtAddressDetail.Text);
-                sql.Parameters.AddWithValue("@TaxAddress", txtTaxAddress.Text);
-                sql.ExecuteNonQuery();
-                localdb.DB().Close();
-                XtraMessageBox.Show("Müşteri Sisteme Eklendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-        }
-        void DeleteCustomers()
-        {
-            try
-            {
-                SqlCommand sql = new SqlCommand("Delete from Customers where ID=@ID", localdb.DB());
-                sql.Parameters.AddWithValue("@ID", txtID.Text);
-                sql.ExecuteNonQuery();
-                localdb.DB().Close();
-                XtraMessageBox.Show("Müşteri Sistemden Silindi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-        }
-        void UpdateCustomers()
-        {
-            try
-            {
-                SqlCommand sql = new SqlCommand("update Customers set FirstName=@FirstName,LastName=@LastName,IdentityNumber=@IdentityNumber,PhoneNumber1=@PhoneNumber1,PhoneNumber2=@PhoneNumber2,EmailAddress=@EmailAddress,AddressCity=@AddressCity,AddressTown=@AddressTown,AddressDetail=@AddressDetail,TaxAddress=@TaxAddress where ID=@ID ", localdb.DB());
-                sql.Parameters.AddWithValue("@FirstName", txtFirstName.Text);
-                sql.Parameters.AddWithValue("@LastName", txtLastName.Text);
-                sql.Parameters.AddWithValue("@IdentityNumber", txtTC.Text);
-                sql.Parameters.AddWithValue("@PhoneNumber1", mtxtPhone1.Text);
-                sql.Parameters.AddWithValue("@PhoneNumber2", mtxtPhone2.Text);
-                sql.Parameters.AddWithValue("@EmailAddress", txtEmail.Text);
-                sql.Parameters.AddWithValue("@AddressCity", cmbCities.SelectedText);
-                sql.Parameters.AddWithValue("@AddressTown", cmbTowns.SelectedText);
-                sql.Parameters.AddWithValue("@AddressDetail", txtAddressDetail.Text);
-                sql.Parameters.AddWithValue("@TaxAddress", txtTaxAddress.Text);
-                sql.Parameters.AddWithValue("@ID", txtID.Text);
-                sql.ExecuteNonQuery();
-                localdb.DB().Close();
-                XtraMessageBox.Show("Müşteri Sistemde Güncellendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
         }
         private void PDF_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -176,7 +175,7 @@ namespace TicariOtomasyonDevExpress
                 {
                     DevExpress.XtraPrinting.XlsxExportOptions opt = new DevExpress.XtraPrinting.XlsxExportOptions();
                     opt.ExportMode = DevExpress.XtraPrinting.XlsxExportMode.SingleFile;
-                    opt.SheetName = "Müşteriler";
+                    opt.SheetName = "Personeller";
                     opt.TextExportMode = DevExpress.XtraPrinting.TextExportMode.Value;
                     gridView1.ExportToXlsx(sfd.FileName, opt);
                     System.Diagnostics.Process.Start(sfd.FileName);
@@ -189,33 +188,33 @@ namespace TicariOtomasyonDevExpress
             }
         }
 
-        private void btnProductSave_Click(object sender, EventArgs e)
+        private void btnEmployeeSave_Click(object sender, EventArgs e)
         {
-            DialogResult result = XtraMessageBox.Show("Müşteriyi kaydetmek istiyor musunuz?", "Son Kararınız Mı?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            DialogResult result = XtraMessageBox.Show("Personeli kaydetmek istiyor musunuz?", "Son Kararınız Mı?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                InsertCustomers();
-                GetCustomers();
+                InsertEmployees();
+                GetEmployees();
             }
         }
 
-        private void btnProductDelete_Click(object sender, EventArgs e)
+        private void btnEmployeeDelete_Click(object sender, EventArgs e)
         {
-            DialogResult result = XtraMessageBox.Show("Müşteriyi silmek istiyor musunuz?", "Son Kararınız Mı?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            DialogResult result = XtraMessageBox.Show("Personeli silmek istiyor musunuz?", "Son Kararınız Mı?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                DeleteCustomers();
-                GetCustomers();
+                DeleteEmployees();
+                GetEmployees();
             }
         }
 
-        private void btnProductUpdate_Click(object sender, EventArgs e)
+        private void btnEmployeeUpdate_Click(object sender, EventArgs e)
         {
-            DialogResult result = XtraMessageBox.Show("Müşteriyi güncellemek istiyor musunuz?", "Son Kararınız Mı?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            DialogResult result = XtraMessageBox.Show("Personeli güncellemek istiyor musunuz?", "Son Kararınız Mı?", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                UpdateCustomers();
-                GetCustomers();
+                UpdateEmployees();
+                GetEmployees();
             }
         }
 
@@ -226,7 +225,7 @@ namespace TicariOtomasyonDevExpress
             txtFirstName.Text = dr["FirstName"].ToString();
             txtLastName.Text = dr["LastName"].ToString();
             txtTC.Text = dr["IdentityNumber"].ToString();
-            txtTaxAddress.Text = dr["TaxAddress"].ToString();
+            txtJobDesc.Text = dr["JobDescription"].ToString();
             txtEmail.Text = dr["EmailAddress"].ToString();
             mtxtPhone1.Text = dr["PhoneNumber1"].ToString();
             mtxtPhone2.Text = dr["PhoneNumber2"].ToString();

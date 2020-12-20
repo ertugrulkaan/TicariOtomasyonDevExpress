@@ -87,7 +87,7 @@ namespace TicariOtomasyonDevExpress
             this.ribbonControl2.Name = "ribbonControl2";
             this.ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
-            this.ribbonControl2.Size = new System.Drawing.Size(1904, 150);
+            this.ribbonControl2.Size = new System.Drawing.Size(1904, 186);
             // 
             // btnHome
             // 
@@ -120,6 +120,7 @@ namespace TicariOtomasyonDevExpress
             this.btnCompanies.Id = 5;
             this.btnCompanies.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCompanies.ImageOptions.SvgImage")));
             this.btnCompanies.Name = "btnCompanies";
+            this.btnCompanies.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCompanies_ItemClick);
             // 
             // btnEmployees
             // 
@@ -128,6 +129,7 @@ namespace TicariOtomasyonDevExpress
             this.btnEmployees.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployees.ImageOptions.Image")));
             this.btnEmployees.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnEmployees.ImageOptions.LargeImage")));
             this.btnEmployees.Name = "btnEmployees";
+            this.btnEmployees.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmployees_ItemClick);
             // 
             // btnExpenses
             // 
@@ -159,6 +161,7 @@ namespace TicariOtomasyonDevExpress
             this.btnAddresses.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddresses.ImageOptions.Image")));
             this.btnAddresses.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddresses.ImageOptions.LargeImage")));
             this.btnAddresses.Name = "btnAddresses";
+            this.btnAddresses.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddresses_ItemClick);
             // 
             // btnInvoices
             // 

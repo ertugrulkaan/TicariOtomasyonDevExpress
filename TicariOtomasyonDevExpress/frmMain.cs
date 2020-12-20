@@ -26,11 +26,31 @@ namespace TicariOtomasyonDevExpress
             fr.Show();
 
         }
-
         private void btnCustomers_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmCustomers fr;
             fr = new frmCustomers();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+        private void btnCompanies_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmCompanies fr;
+            fr = new frmCompanies();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+        private void btnEmployees_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmEmployees fr;
+            fr = new frmEmployees();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+        private void btnAddresses_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmContacts fr;
+            fr = new frmContacts();
             fr.MdiParent = this;
             fr.Show();
         }

@@ -23,42 +23,63 @@ namespace TicariOtomasyonDevExpress
 
         void GetProducts()
         {
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter("Select * from Products",localdb.DB());
-            da.Fill(dt);
-            gridControl1.DataSource = dt;
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter("Select * from Products", localdb.DB());
+                da.Fill(dt);
+                gridControl1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         void InsertProducts()
         {
-            SqlCommand sql = new SqlCommand("Insert into Products (Name,Brand,Model,ProductionDate,Quantity,PurchasePrice,SalePrice,Detail) values (@Name,@Brand,@Model,@ProductionDate,@Quantity,@PurchasePrice,@SalePrice,@Detail)",localdb.DB());
-            sql.Parameters.AddWithValue("@Name", txtProductName.Text);
-            sql.Parameters.AddWithValue("@Brand", txtProductBrand.Text);
-            sql.Parameters.AddWithValue("@Model", txtProductModel.Text);
-            sql.Parameters.AddWithValue("@ProductionDate", txtProductYear.Text);
-            sql.Parameters.AddWithValue("@Quantity", int.Parse((nudProductQuantity.Value).ToString()));
-            sql.Parameters.AddWithValue("@PurchasePrice", decimal.Parse(txtProductBuyingPrice.Text));
-            sql.Parameters.AddWithValue("@SalePrice", decimal.Parse(txtProductSellingPrice.Text));
-            sql.Parameters.AddWithValue("@Detail", txtProductDetail.Text);
-            sql.ExecuteNonQuery();
-            localdb.DB().Close();
-            XtraMessageBox.Show("Ürün Sisteme Eklendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                SqlCommand sql = new SqlCommand("Insert into Products (Name,Brand,Model,ProductionDate,Quantity,PurchasePrice,SalePrice,Detail) values (@Name,@Brand,@Model,@ProductionDate,@Quantity,@PurchasePrice,@SalePrice,@Detail)", localdb.DB());
+                sql.Parameters.AddWithValue("@Name", txtProductName.Text);
+                sql.Parameters.AddWithValue("@Brand", txtProductBrand.Text);
+                sql.Parameters.AddWithValue("@Model", txtProductModel.Text);
+                sql.Parameters.AddWithValue("@ProductionDate", txtProductYear.Text);
+                sql.Parameters.AddWithValue("@Quantity", int.Parse((nudProductQuantity.Value).ToString()));
+                sql.Parameters.AddWithValue("@PurchasePrice", decimal.Parse(txtProductBuyingPrice.Text));
+                sql.Parameters.AddWithValue("@SalePrice", decimal.Parse(txtProductSellingPrice.Text));
+                sql.Parameters.AddWithValue("@Detail", txtProductDetail.Text);
+                sql.ExecuteNonQuery();
+                localdb.DB().Close();
+                XtraMessageBox.Show("Ürün Sisteme Eklendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         void UpdateProducts()
         {
-            SqlCommand sql = new SqlCommand("update Products set Name=@Name,Brand=@Brand,Model=@Model,ProductionDate=@ProductionDate,Quantity=@Quantity,PurchasePrice=@PurchasePrice,SalePrice=@SalePrice,Detail=@Detail where ID=@ID ", localdb.DB());
-            sql.Parameters.AddWithValue("@ID", txtID.Text);
-            sql.Parameters.AddWithValue("@Name", txtProductName.Text);
-            sql.Parameters.AddWithValue("@Brand", txtProductBrand.Text);
-            sql.Parameters.AddWithValue("@Model", txtProductModel.Text);
-            sql.Parameters.AddWithValue("@ProductionDate", txtProductYear.Text);
-            sql.Parameters.AddWithValue("@Quantity", int.Parse((nudProductQuantity.Value).ToString()));
-            sql.Parameters.AddWithValue("@PurchasePrice", decimal.Parse(txtProductBuyingPrice.Text));
-            sql.Parameters.AddWithValue("@SalePrice", decimal.Parse(txtProductSellingPrice.Text));
-            sql.Parameters.AddWithValue("@Detail", txtProductDetail.Text);
-            sql.ExecuteNonQuery();
-            localdb.DB().Close();
-            XtraMessageBox.Show("Ürün Sistemde Güncellendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                SqlCommand sql = new SqlCommand("update Products set Name=@Name,Brand=@Brand,Model=@Model,ProductionDate=@ProductionDate,Quantity=@Quantity,PurchasePrice=@PurchasePrice,SalePrice=@SalePrice,Detail=@Detail where ID=@ID ", localdb.DB());
+                sql.Parameters.AddWithValue("@ID", txtID.Text);
+                sql.Parameters.AddWithValue("@Name", txtProductName.Text);
+                sql.Parameters.AddWithValue("@Brand", txtProductBrand.Text);
+                sql.Parameters.AddWithValue("@Model", txtProductModel.Text);
+                sql.Parameters.AddWithValue("@ProductionDate", txtProductYear.Text);
+                sql.Parameters.AddWithValue("@Quantity", int.Parse((nudProductQuantity.Value).ToString()));
+                sql.Parameters.AddWithValue("@PurchasePrice", decimal.Parse(txtProductBuyingPrice.Text));
+                sql.Parameters.AddWithValue("@SalePrice", decimal.Parse(txtProductSellingPrice.Text));
+                sql.Parameters.AddWithValue("@Detail", txtProductDetail.Text);
+                sql.ExecuteNonQuery();
+                localdb.DB().Close();
+                XtraMessageBox.Show("Ürün Sistemde Güncellendi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "HATA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
 
