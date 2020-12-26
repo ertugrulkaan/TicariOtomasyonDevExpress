@@ -164,7 +164,6 @@ namespace TicariOtomasyonDevExpress
                 }
             }
         }
-
         private void Excel_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();

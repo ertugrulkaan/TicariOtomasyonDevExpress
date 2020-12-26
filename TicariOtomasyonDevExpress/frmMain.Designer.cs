@@ -45,6 +45,7 @@ namespace TicariOtomasyonDevExpress
             this.btnInvoices = new DevExpress.XtraBars.BarButtonItem();
             this.btnSettings = new DevExpress.XtraBars.BarButtonItem();
             this.skinPaletteRibbonGalleryBarItem2 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
+            this.btnBanks = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -81,9 +82,10 @@ namespace TicariOtomasyonDevExpress
             this.btnAddresses,
             this.btnInvoices,
             this.btnSettings,
-            this.skinPaletteRibbonGalleryBarItem2});
+            this.skinPaletteRibbonGalleryBarItem2,
+            this.btnBanks});
             this.ribbonControl2.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl2.MaxItemId = 14;
+            this.ribbonControl2.MaxItemId = 15;
             this.ribbonControl2.Name = "ribbonControl2";
             this.ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
@@ -138,6 +140,7 @@ namespace TicariOtomasyonDevExpress
             this.btnExpenses.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExpenses.ImageOptions.Image")));
             this.btnExpenses.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnExpenses.ImageOptions.LargeImage")));
             this.btnExpenses.Name = "btnExpenses";
+            this.btnExpenses.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnExpenses_ItemClick);
             // 
             // btnCase
             // 
@@ -170,6 +173,7 @@ namespace TicariOtomasyonDevExpress
             this.btnInvoices.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnInvoices.ImageOptions.Image")));
             this.btnInvoices.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnInvoices.ImageOptions.LargeImage")));
             this.btnInvoices.Name = "btnInvoices";
+            this.btnInvoices.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnInvoices_ItemClick);
             // 
             // btnSettings
             // 
@@ -184,6 +188,15 @@ namespace TicariOtomasyonDevExpress
             this.skinPaletteRibbonGalleryBarItem2.Caption = "skinPaletteRibbonGalleryBarItem2";
             this.skinPaletteRibbonGalleryBarItem2.Id = 13;
             this.skinPaletteRibbonGalleryBarItem2.Name = "skinPaletteRibbonGalleryBarItem2";
+            // 
+            // btnBanks
+            // 
+            this.btnBanks.Caption = "BANKALAR";
+            this.btnBanks.Id = 14;
+            this.btnBanks.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBanks.ImageOptions.Image")));
+            this.btnBanks.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBanks.ImageOptions.LargeImage")));
+            this.btnBanks.Name = "btnBanks";
+            this.btnBanks.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBanks_ItemClick);
             // 
             // ribbonPage2
             // 
@@ -203,6 +216,7 @@ namespace TicariOtomasyonDevExpress
             this.ribbonPageGroup1.ItemLinks.Add(this.btnExpenses);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCase);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNotes);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnBanks);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnAddresses);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnInvoices);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSettings);
@@ -250,5 +264,6 @@ namespace TicariOtomasyonDevExpress
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private DevExpress.XtraBars.BarButtonItem btnBanks;
     }
 }

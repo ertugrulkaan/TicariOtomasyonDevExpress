@@ -33,19 +33,21 @@ namespace TicariOtomasyonDevExpress
                 //TODO: GENEL AYARLAR KISMINI YAPTIĞINDA DATABASE E MAİL VE ŞİFRE EKLE ORADAN GÖNDERİM YAPAR.
                 MailMessage mailMessage = new MailMessage();
                 SmtpClient smtpClient = new SmtpClient();
-                smtpClient.Credentials = new NetworkCredential("Mail", "Sifre");
+                smtpClient.Credentials = new NetworkCredential("smtpserverdeneme@gmail.com", "Rebel1301!");
                 smtpClient.Port = 587;
-                smtpClient.Host = "smtp.live.com";
+                smtpClient.Host = "smtp.gmail.com";
                 smtpClient.EnableSsl = true;
                 mailMessage.To.Add(txtMailAddress.Text);
-                mailMessage.From = new MailAddress("Mail");
+                mailMessage.From = new MailAddress("smtpserverdeneme@gmail.com");
                 mailMessage.Subject = txtMailSubject.Text;
                 mailMessage.Body = txtMailMessage.Text;
                 smtpClient.Send(mailMessage);
+                svgSuccess.Visible = true;
             }
             catch (Exception ex)
             {
                 XtraMessageBox.Show("Mail ayarlarınızı kontrol edin!\n" + ex.Message , "HATA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                svgFail.Visible = true;
             }
         }
     }

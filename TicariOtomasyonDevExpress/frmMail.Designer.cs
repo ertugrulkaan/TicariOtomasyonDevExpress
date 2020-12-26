@@ -41,9 +41,13 @@ namespace TicariOtomasyonDevExpress
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.svgSuccess = new DevExpress.XtraEditors.SvgImageBox();
+            this.svgFail = new DevExpress.XtraEditors.SvgImageBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtMailAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMailSubject.Properties)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.svgSuccess)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgFail)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -94,7 +98,7 @@ namespace TicariOtomasyonDevExpress
             // 
             // btnSendMail
             // 
-            this.btnSendMail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnSendMail.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSendMail.ImageOptions.Image")));
             this.btnSendMail.Location = new System.Drawing.Point(146, 501);
             this.btnSendMail.Name = "btnSendMail";
             this.btnSendMail.Size = new System.Drawing.Size(188, 33);
@@ -142,11 +146,33 @@ namespace TicariOtomasyonDevExpress
             this.labelControl6.TabIndex = 10;
             this.labelControl6.Text = "sürece mail gönderemezsiniz.";
             // 
+            // svgSuccess
+            // 
+            this.svgSuccess.Location = new System.Drawing.Point(86, 501);
+            this.svgSuccess.Name = "svgSuccess";
+            this.svgSuccess.Size = new System.Drawing.Size(54, 33);
+            this.svgSuccess.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgSuccess.SvgImage")));
+            this.svgSuccess.TabIndex = 11;
+            this.svgSuccess.Text = "svgImageBox1";
+            this.svgSuccess.Visible = false;
+            // 
+            // svgFail
+            // 
+            this.svgFail.Location = new System.Drawing.Point(86, 500);
+            this.svgFail.Name = "svgFail";
+            this.svgFail.Size = new System.Drawing.Size(54, 33);
+            this.svgFail.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgFail.SvgImage")));
+            this.svgFail.TabIndex = 12;
+            this.svgFail.Text = "svgImageBox2";
+            this.svgFail.Visible = false;
+            // 
             // frmMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 595);
+            this.Controls.Add(this.svgFail);
+            this.Controls.Add(this.svgSuccess);
             this.Controls.Add(this.labelControl6);
             this.Controls.Add(this.labelControl5);
             this.Controls.Add(this.panel1);
@@ -165,6 +191,8 @@ namespace TicariOtomasyonDevExpress
             ((System.ComponentModel.ISupportInitialize)(this.txtMailSubject.Properties)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.svgSuccess)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgFail)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,5 +211,7 @@ namespace TicariOtomasyonDevExpress
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.SvgImageBox svgSuccess;
+        private DevExpress.XtraEditors.SvgImageBox svgFail;
     }
 }

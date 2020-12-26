@@ -16,8 +16,6 @@ namespace TicariOtomasyonDevExpress
         {
             InitializeComponent();
         }
-
-
         private void btnProducts_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             frmProducts fr;
@@ -51,6 +49,29 @@ namespace TicariOtomasyonDevExpress
         {
             frmContacts fr;
             fr = new frmContacts();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+        private void btnExpenses_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmExpenses fr;
+            fr = new frmExpenses();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void btnBanks_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmBanks fr;
+            fr = new frmBanks();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void btnInvoices_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmInvoices fr;
+            fr = new frmInvoices();
             fr.MdiParent = this;
             fr.Show();
         }
