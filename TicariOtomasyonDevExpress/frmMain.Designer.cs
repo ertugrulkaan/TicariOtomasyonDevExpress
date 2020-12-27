@@ -46,6 +46,8 @@ namespace TicariOtomasyonDevExpress
             this.btnSettings = new DevExpress.XtraBars.BarButtonItem();
             this.skinPaletteRibbonGalleryBarItem2 = new DevExpress.XtraBars.SkinPaletteRibbonGalleryBarItem();
             this.btnBanks = new DevExpress.XtraBars.BarButtonItem();
+            this.btnActions = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReports = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -83,9 +85,11 @@ namespace TicariOtomasyonDevExpress
             this.btnInvoices,
             this.btnSettings,
             this.skinPaletteRibbonGalleryBarItem2,
-            this.btnBanks});
+            this.btnBanks,
+            this.btnActions,
+            this.btnReports});
             this.ribbonControl2.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl2.MaxItemId = 15;
+            this.ribbonControl2.MaxItemId = 17;
             this.ribbonControl2.Name = "ribbonControl2";
             this.ribbonControl2.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage2});
@@ -156,6 +160,7 @@ namespace TicariOtomasyonDevExpress
             this.btnNotes.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNotes.ImageOptions.Image")));
             this.btnNotes.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNotes.ImageOptions.LargeImage")));
             this.btnNotes.Name = "btnNotes";
+            this.btnNotes.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNotes_ItemClick);
             // 
             // btnAddresses
             // 
@@ -198,6 +203,24 @@ namespace TicariOtomasyonDevExpress
             this.btnBanks.Name = "btnBanks";
             this.btnBanks.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBanks_ItemClick);
             // 
+            // btnActions
+            // 
+            this.btnActions.Caption = "HAREKETLER";
+            this.btnActions.Id = 15;
+            this.btnActions.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnActions.ImageOptions.Image")));
+            this.btnActions.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnActions.ImageOptions.LargeImage")));
+            this.btnActions.Name = "btnActions";
+            this.btnActions.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnActions_ItemClick);
+            // 
+            // btnReports
+            // 
+            this.btnReports.Caption = "RAPORLAR";
+            this.btnReports.Id = 16;
+            this.btnReports.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReports.ImageOptions.Image")));
+            this.btnReports.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReports.ImageOptions.LargeImage")));
+            this.btnReports.Name = "btnReports";
+            this.btnReports.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReports_ItemClick);
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -219,6 +242,8 @@ namespace TicariOtomasyonDevExpress
             this.ribbonPageGroup1.ItemLinks.Add(this.btnBanks);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnAddresses);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnInvoices);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnActions);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnReports);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnSettings);
             this.ribbonPageGroup1.ItemLinks.Add(this.skinPaletteRibbonGalleryBarItem2);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
@@ -265,5 +290,7 @@ namespace TicariOtomasyonDevExpress
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.XtraBars.BarButtonItem btnBanks;
+        private DevExpress.XtraBars.BarButtonItem btnActions;
+        private DevExpress.XtraBars.BarButtonItem btnReports;
     }
 }

@@ -75,5 +75,29 @@ namespace TicariOtomasyonDevExpress
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void btnNotes_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmNotes fr;
+            fr = new frmNotes();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void btnActions_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmActions fr;
+            fr = new frmActions();
+            fr.MdiParent = this;
+            fr.Show();
+        }
+
+        private void btnReports_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmReports fr;
+            fr = new frmReports();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }
