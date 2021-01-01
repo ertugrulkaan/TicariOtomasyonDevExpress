@@ -16,7 +16,16 @@ namespace TicariOtomasyonDevExpress
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmUserLogin());
+            // MY COMPUTER -> DETAILS -> YOUR PC NAME
+            if (System.Environment.MachineName == "DESKTOP-674NP11")
+            {
+                Application.Run(new frmMain());
+            }
+            // PW IS MD5 CRYPTED. USE DECRYPT METHOD TO FIND USER PW'S.
+            else
+            {
+                Application.Run(new frmUserLogin());
+            }
         }
     }
 }

@@ -99,5 +99,13 @@ namespace TicariOtomasyonDevExpress
             fr.MdiParent = this;
             fr.Show();
         }
+
+        private void btnStocks_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmStocks fr;
+            fr = new frmStocks();
+            fr.MdiParent = this;
+            fr.Show();
+        }
     }
 }
